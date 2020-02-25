@@ -1,6 +1,8 @@
+### UNFINISHED ATTEMPT 
+### goal: scrape event details from the a2gov calendar 
+
 import requests
 from bs4 import BeautifulSoup
-
 
 def print_event_details(date_string, event_details_url):
     response = requests.get(event_details_url)
