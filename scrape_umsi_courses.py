@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import time
 
 BASE_URL = 'https://www.si.umich.edu'
 COURSES_PATH = '/programs/courses'
@@ -30,11 +30,11 @@ for course_listing_div in course_listing_divs:
 
     ## extract course description
     desc = soup.find(class_='grid--3col-2').find('p')
-    print(desc.text.strip())
+    #print(desc.text.strip())
 
     ## extract credit hours
     credits = soup.find(class_='credit-hours').find('span')
-    print('Credits', credits.text.strip())
+    print('Credits:', credits.text.strip())
 
     ## extract prereqs
     prereqs_div = soup.find(class_='prerequisites-enforced')
@@ -44,6 +44,8 @@ for course_listing_div in course_listing_divs:
             print('Prereq:', p.text.strip())
 
     print('-' * 40)
+
+    time.sleep(1)
 
 
 
